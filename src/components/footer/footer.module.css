@@ -164,7 +164,15 @@ small{
     border-radius: 4px;
     color: #000;
     padding: 1rem;
-    font-family: "Tuffy";
+    font-family: "Onest";
+}
+
+footer > p{
+    font-family: "Onest";
+}
+
+h2{
+    font-family: "Raleway";
 }
 
 .displaynone{
