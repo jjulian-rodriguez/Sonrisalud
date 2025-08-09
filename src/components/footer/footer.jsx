@@ -129,16 +129,16 @@ function Footer(){
 
   return(
     <footer className={styles.footer}>
-      <section>          
+      <section className={styles.section}>          
         <div className={styles.div_socialMedia}>
-          <h2>Síguenos</h2>
+          <h2 className={styles.h2}>Síguenos</h2>
           <InstagramLink username="sonrisalud"/>
           <FacebookLink username="sonrisalud"/>
           <TiktokLink username="sonrisalud"/>
         </div>
 
         <div className={styles.frequentily}>
-          <h2>Preguntas frecuentes</h2>
+          <h2 className={styles.h2}>Preguntas frecuentes</h2>
 
           <div className={styles.questions}>
             <span onClick={() => toggleFAQ("Q1")}>¿Dónde están ubicados?</span>
@@ -181,33 +181,33 @@ function Footer(){
         <div className={styles.div_container_form}>
           <form onSubmit={submit} noValidate className={styles.form}>
             <div className={styles.div_form}>
-              <label htmlFor="name">Nombre completo <sup>*</sup></label>
-              <input type="text" id="name" name="name" required value={name} onBlur={VerifiedName} onChange={(e)=> setName(e.target.value)}  />
+              <label className={styles.label}  htmlFor="name">Nombre completo <sup>*</sup></label>
+              <input className={styles.input} type="text" id="name" name="name" required value={name} onBlur={VerifiedName} onChange={(e)=> setName(e.target.value)}  />
               <small>{formAlert.nameA}</small>
             </div>
 
             <div className={styles.div_form}>
-              <label htmlFor="mail">Correo <sup>*</sup></label>
-              <input type="email" id="mail" name="mail" required value={mail} onBlur={VerifiedMail} onChange={(e)=> setMail(e.target.value)} />
+              <label className={styles.label}  htmlFor="mail">Correo <sup>*</sup></label>
+              <input className={styles.input}  type="email" id="mail" name="mail" required value={mail} onBlur={VerifiedMail} onChange={(e)=> setMail(e.target.value)} />
               <small>{formAlert.mailA}</small>
             </div>
 
             <div className={styles.div_form}>
-              <label htmlFor="tel">Teléfono <sup>*</sup></label>
-              <input type="tel" id="tel" name="tel" onBlur={VerifiedTel} pattern="[0-9]{8}" required value={tel} onChange={(e)=> setTel(e.target.value)}/>
+              <label className={styles.label} htmlFor="tel">Teléfono <sup>*</sup></label>
+              <input className={styles.input}  type="tel" id="tel" name="tel" onBlur={VerifiedTel} pattern="[0-9]{8}" required value={tel} onChange={(e)=> setTel(e.target.value)}/>
               <small>{formAlert.telA}</small>
             </div>
 
             <div className={styles.div_form}> 
-              <label htmlFor="message">Mensaje <span className={styles.opcional}>(Opcional)</span></label>
-              <textarea name="message" id="message" placeholder="Escribe tu pregunta, duda o lo que quieras saber aquí."></textarea>
+              <label className={styles.label}  htmlFor="message">Mensaje <span className={styles.opcional}>(Opcional)</span></label>
+              <textarea className={styles.textarea} name="message" id="message" placeholder="Escribe tu pregunta, duda o lo que quieras saber aquí."></textarea>
             </div>
 
             <button disabled={disabled}>Enviar</button>
           </form>
         </div>
       </section>
-      <p>Copyright Sonrisalud. Todos los derechos reservados.</p>
+      <p className={styles.p}>Copyright Sonrisalud. Todos los derechos reservados.</p>
     </footer>
   );
 }
