@@ -1,40 +1,25 @@
 import styles from "./footer.module.css"
 import { useState, useEffect } from 'react'
 
-const InstagramLink = ({ username }) => (
-  <a 
-    href={`https://www.instagram.com/${username}/`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={styles.link}
-  >
-    {`Síguenos en Instagram (@${username})`}
-  </a>
-);
 
-const FacebookLink = ({ username }) => (
-  <a 
-    href={`https://www.facebook.com/${username}/`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={styles.link}
-  >
-    {`Síguenos en Facebook (@${username})`}
-  </a>
-);
 
-const TiktokLink = ({ username }) => (
-  <a 
-    href={`https://www.tiktok.com/${username}/`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={styles.link}
-  >
-    {`Síguenos en TikTok (@${username})`}
-  </a>
-);
 
 function Footer(){
+    const Links = ({url, socialMedia}) => {
+      return(
+    <a 
+    href={`${url}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={styles.link}
+    >
+    {`Síguenos en ${socialMedia}`}
+    </a>
+      );
+     
+  }
+
+
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
   const [tel, setTel] = useState(""); 
@@ -132,9 +117,9 @@ function Footer(){
       <section className={styles.section}>          
         <div className={styles.div_socialMedia}>
           <h2 className={styles.h2}>Síguenos</h2>
-          <InstagramLink username="sonrisalud"/>
-          <FacebookLink username="sonrisalud"/>
-          <TiktokLink username="sonrisalud"/>
+          <Links url={"www.instagram.com"} socialMedia={"Instagram"}/>
+          <Links url={"www.instagram.com"} socialMedia={"Facebook"}/>
+          <Links url={"www.instagram.com"} socialMedia={"TikTok"}/>
         </div>
 
         <div className={styles.frequentily}>

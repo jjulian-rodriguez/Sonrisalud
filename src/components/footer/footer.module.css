@@ -34,7 +34,7 @@ html, body{
 }
 
 .h2{
-    font-size: 3rem;
+    font-size: 2.2rem;
     text-align: center;
 }
 
@@ -47,6 +47,7 @@ html, body{
     text-decoration: none;
     box-shadow: 0 0 20px #ddd;
     font-family: "Tuffy";
+    text-align: center;
 }
 
 .link:hover{
