@@ -77,6 +77,8 @@
     background-color: transparent;
 }
 
+
+
 @media(max-width: 1000px){
     .tel, .cel{
         display: none;

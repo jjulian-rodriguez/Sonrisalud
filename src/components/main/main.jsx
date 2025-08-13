@@ -3,35 +3,28 @@ import { Link } from 'react-router-dom';
 
 
 function Main(){
+
+    const Services = ({service, description}) => {
+        return(
+        <Link className={styles.card_service}>
+            <h3 className={styles.h3}>{service}</h3>
+            <p>{description}</p>
+        </Link>
+        );
+    }
+
     return(
     <main>
         <section className={styles.section_services}>
                 <div className={styles.div_services}>
                     <h2 className={styles.h2}>Nuestros servicios mas solicitados!</h2>
                     <div className={styles.div_contain_service}>
-                        <Link className={styles.card_service}>
-                            <h3 className={styles.h3}>Estética Dental</h3>
-                        </Link>
-
-                        <Link className={styles.card_service}>
-                            <h3 className={styles.h3}>Ortodoncia</h3>
-                        </Link>
-
-                        <Link className={styles.card_service}>
-                            <h3 className={styles.h3}>Blanqueamiento Dental</h3>
-                        </Link>
-
-                        <Link className={styles.card_service}>
-                            <h3 className={styles.h3}>Ortodonpediatría</h3>
-                        </Link>
-
-                        <Link className={styles.card_service}>
-                            <h3 className={styles.h3}>Implantes Dentales</h3>
-                        </Link>
-
-                        <Link className={styles.card_service}>
-                            <h3 className={styles.h3}>Limpieza Dental</h3>
-                        </Link>
+                        <Services service={'Estetica Dental'} description={'.'}/>
+                        <Services service={'Ortodoncia'} description={'.'}/>
+                        <Services service={'Blanqueamiento Dental'} description={'.'}/>
+                        <Services service={'Ortodonpediatría'} description={'.'}/>
+                        <Services service={'Implantes Dentales'} description={'.'}/>
+                        <Services service={'Limpieza Dental'} description={'.'}/>
                     </div>
                 </div>
         </section>
