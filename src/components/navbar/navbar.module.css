@@ -3,25 +3,44 @@
     height: 20vh;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     overflow: hidden;
-    position: absolute;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    background-color: #fff;
 }
 
-
-.navbar_ul{
-    width: auto;
-    height: 50%;
+.div{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0 3rem;
+    width: 40%;
+    gap: 1rem;
+}
+
+.tel, .cel{
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: "Onest";
+}
+
+.logo{
+    width: 10rem;
+    position: relative;
+    justify-self: flex-start;
+}
+
+.navbar_ul{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 4px;
-    margin-right: 4rem;
-    padding: 0 2rem;
+    padding: 0;
+    gap: 0 2rem;
 }
 
 .navbar_li{
@@ -31,11 +50,13 @@
     border-radius: 4px;
     padding: 0.5rem;
     transition: 0.2s;
+    width: 20%;
+    text-align: center;
 }
 
 .navbar_link{
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-family: "Tuffy";
     color: #fff;
 
@@ -43,6 +64,9 @@
 
 .navbar_li:hover{
     background-color: transparent;
+    .navbar_link{
+        color: #000;
+    }
 }
 
 .hamburger{
@@ -53,10 +77,25 @@
     background-color: transparent;
 }
 
+@media(max-width: 1000px){
+    .tel, .cel{
+        display: none;
+    }
 
+    .div{
+        width: 20%;
+    }
 
+    .navbar_ul{
+        width: 80%;
+    }
+}
 
-@media (max-width: 650px){
+@media (max-width: 850px){
+    .logo{
+        width: 8rem;
+    }
+
     .navbar_ul{
         gap: 1rem;
         margin-right: 0;
@@ -72,14 +111,16 @@
     }
 }
 
-@media (max-width: 420px){
 
+@media (max-width: 650px){
     .displaynone{
+        display: none;
         visibility: hidden;
         opacity: 0;
     }
 
     .displayblock{
+        display: block;
         visibility: visible;
         opacity: 1;
     }
@@ -103,7 +144,15 @@
     .navbar{
         height: auto;
     }
+    .navbar_ul{
+        width: 100%;
+    }
 
+}
+
+@media (max-width: 500px){
+
+    
     .navbar_ul{
         margin: 0;
         padding: 0;
@@ -116,11 +165,20 @@
         width: 80%;
         text-align: center;
         padding: 0;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #4A6B8A;
+        border-radius: 0;
     }
 
     .navbar_link{
         width: 90%;
         padding: 0;
+        color: #4A6B8A;
+    }
+
+    .navbar{
+        padding: 0 0 1rem 0;
     }
 
 }
