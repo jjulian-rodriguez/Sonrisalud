@@ -1,6 +1,48 @@
+import { useEffect, useState } from 'react';
 import styles from './date.module.css'
 
-function Date(){
+function Dates(){
+    
+
+    const generateDates = () => {
+    const days = [];
+    const today = new Date();
+    for (let i = 0; i < 7; i++) {
+      const newDate = new Date(today);
+      newDate.setDate(today.getDate() + i);
+      days.push(newDate.toISOString().split("T")[0]); // formato YYYY-MM-DD
+    }
+    return days;
+  };
+
+  const availableDates = generateDates();
+
+  const Days = ()=>{
+    return availableDates.map((day, index) => (
+        <option value="" key={index}>{day}</option>
+    ))
+  }
+
+    const Times = [
+        '8:00 A.M',
+        '9:00 A.M',
+        '10:00 A.M',
+        '11:00 A.M',
+        '1:30 P.M',
+        '2:30 P.M',
+        '3:30 P.M',
+        '4:30 P.M',
+        '5:30 P.M',
+    ]
+    
+    const Hour = () => {
+        return Times.map((time, index) => (
+            <option key={index} value={time}>
+            {time}
+            </option>
+        ));
+};
+
     return(
         <section className={styles.section}>
             <div className={styles.div}>
@@ -24,7 +66,15 @@ function Date(){
 
                 <fieldset className={styles.fieldset}>
                     <legend>Fecha</legend>
-                    <input type="date" />
+                    <label htmlFor="day">Día</label>
+                    <select name="day" id="day">
+                        <Days></Days>
+                    </select>
+
+                    <label htmlFor="hour">Hora</label>
+                    <select name="hour" id="hour">
+                        <Hour/>
+                    </select>
                 </fieldset>
             </form>
         </section>
@@ -32,4 +82,4 @@ function Date(){
     
 }
 
-export default Date
+export default Dates

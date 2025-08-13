@@ -7,7 +7,7 @@ import About from './pages/about/about.jsx';
 import Footer from './components/footer/footer.jsx';
 import Services from './pages/services/services.jsx';
 import Main from './components/main/main.jsx';
-import Date from './pages/date/date.jsx';
+import Dates from './pages/date/date.jsx';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
           <Header/>
           <Main/>
         </> }/>
-        <Route path='/date' element={<Date/>}/>
+        <Route path='/date' element={<Dates/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/services' element={<Services/>}/>
       </Routes>
