@@ -28,7 +28,7 @@ function Navbar(){
                     <Link className={`${styles.navbar_link} ${open ? styles.event : styles.nonevent}`} to="/about">Nosotros</Link>
                 </li >
                 <li className={`${styles.navbar_li} ${open ? styles.displayblock : styles.displaynone}`}>
-                    <Link className={styles.navbar_link} to="">Agendá tu cita</Link>
+                    <Link className={styles.navbar_link} to="/date">Agendá tu cita</Link>
                 </li>
                 <li className={`${styles.navbar_li} ${open ? styles.displayblock : styles.displaynone}`}>
                     <Link className={styles.navbar_link} to="">Contáctanos</Link>

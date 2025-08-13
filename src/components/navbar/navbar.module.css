@@ -45,13 +45,13 @@
 
 .navbar_li{
     list-style: none;
+    width: 20%;
+    text-align: center;
+    padding: 0.5rem;
     background-color: #4A6B8A;
     border: 2px solid #4A6B8A;
     border-radius: 4px;
-    padding: 0.5rem;
     transition: 0.2s;
-    width: 20%;
-    text-align: center;
 }
 
 .navbar_link{
@@ -59,7 +59,7 @@
     font-size: 1rem;
     font-family: "Tuffy";
     color: #fff;
-
+    
 }
 
 .navbar_li:hover{
