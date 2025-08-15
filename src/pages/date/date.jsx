@@ -88,14 +88,30 @@ function Dates(){
             setAlertText(prev => ({...prev, Mail: "Por favor utiliza el patron de email: @ y/o ."}))
             setIsValid(prev => ({...prev, Mail: false}))
         }
-
-        function handleSubmit(){
-            if(isValid.Name && isValid.Mail && isValid.Tel){
-                
-            }
-        }
-
     }
+
+        function ValidationTel(){
+        if(!tel.trim()){
+            setAlertText(prev => ({...prev, Tel: "El teléfono es obligatorio*"}))
+            setIsValid(prev => ({...prev, Tel: false}))
+        }
+        else if(/^[A-Za-z]+$/.test(tel)){
+            setAlertText(prev => ({...prev, Tel:"Por favor utiliza el patron de número de teléfono"}))
+            setIsValid(prev => ({...prev, Tel: false}))
+        }
+        else {
+            setAlertText(prev => ({...prev, Tel:""}))
+            setIsValid(prev => ({...prev, Tel: true}))
+        }
+    }
+
+    
+    const [disabled, setDisabled] = useState(true)
+
+    useEffect(()=> {
+        setDisabled(isValid.Name && isValid.Mail && isValid.Tel ? false : true)
+    },[isValid])
+    
     return(
         <section className={styles.section}>
             <div className={styles.div}>
@@ -116,7 +132,7 @@ function Dates(){
 
 
                     <label className={styles.label} htmlFor="dateTel">Número de teléfono <sup>*</sup></label>
-                    <input className={styles.input} type="tel" />
+                    <input className={styles.input} id='dateTel' name='dateTel' type="tel" value={tel} onBlur={ValidationTel} onChange={(e)=> setTel(e.target.value)} />
                     <small className={styles.small}>{alertText.Tel}</small>
 
                 </fieldset>
@@ -132,12 +148,11 @@ function Dates(){
                     <select className={styles.select} name="hour" id="hour">
                         <Hour/>
                     </select>
+                     <button className={styles.btn} disabled={disabled} action="Submit">Enviar</button>
                 </fieldset>
-                <button className={styles.btn} action="Submit">Enviar</button>
             </form>
         </section>
-    );
-    
+    );  
 }
 
 export default Dates
