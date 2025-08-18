@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import styles from './date.module.css'
 
 function Dates(){
@@ -8,7 +8,7 @@ function Dates(){
     const days = [];
     
     const today = new Date();
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 14; i++) {
       const newDate = new Date(today);
       newDate.setDate(today.getDate() + i);
       days.push(newDate.toISOString().split("T")[0]); 
@@ -111,7 +111,51 @@ function Dates(){
     useEffect(()=> {
         setDisabled(isValid.Name && isValid.Mail && isValid.Tel ? false : true)
     },[isValid])
+
+    const ServicesAvailable = [
+        'Estética Dental',
+        'Ortodoncia',
+        'Implantes Dentales',
+        'Blanqueamiento Dental',
+        'Endodoncia',
+        'Periodoncia',
+        'Odontopediatría',
+        'Limpieza Dental',
+        'Cirugía Oral',
+        'Prostodoncia',
+        'Radiografías Dentales',
+        'Consulta General',
+        'Tratamiento de Caries',
+        'Tratamiento de Encías',
+        'Tratamiento de Sensibilidad Dental',
+        'Tratamiento de Bruxismo',
+        'Tratamiento de Halitosis',
+        'Tratamiento de Dientes Desgastados',
+        'Tratamiento de Dientes Astillados',
+        'Tratamiento de Dientes Torcidos'
+    ]
+
+    const dayDate = ''
+    const hourDate = ''
+    const serviceDate = ''
+
+    const Services = () => {
+        return ServicesAvailable.map((service, index) => (
+            <option key={index} value={serviceDate}>
+                {service}
+            </option>
+        ))
+    }
+
+    const [ConfirmDate, setConfirmDate] = useState(false)
     
+    function VerifiedDate(){
+        return(
+            <div></div>
+        )
+    }
+
+
     return(
         <section className={styles.section}>
             <div className={styles.div}>
@@ -121,36 +165,58 @@ function Dates(){
             <form action="" className={styles.form}>
                 <fieldset className={styles.fieldset}>
                     <legend className={styles.legend}>Datos personales</legend>
+                    
+                    <div className={styles.div_contain_input}>
+                        <label className={styles.label} htmlFor="dateName">Nombre Completo <sup>*</sup></label>
+                        <input className={styles.input} onBlur={ValidationName} value={name} onChange={(e) => setName(e.target.value)} type="text" />
+                        <small className={styles.small}>{alertText.Name}</small>
+                    </div>
+                    
+                    <div className={styles.div_contain_input}>
+                        <label className={styles.label} htmlFor="dateMail">Correo Electrónico <sup>*</sup></label>
+                        <input className={styles.input} value={mail} onBlur={ValidationMail} onChange={(e)=> setMail(e.target.value)} type="email" />
+                        <small className={styles.small}>{alertText.Mail}</small>
+                    </div>
+                    
 
-                    <label className={styles.label} htmlFor="dateName">Nombre Completo <sup>*</sup></label>
-                    <input className={styles.input} onBlur={ValidationName} value={name} onChange={(e) => setName(e.target.value)} type="text" />
-                    <small className={styles.small}>{alertText.Name}</small>
-
-                    <label className={styles.label} htmlFor="dateMail">Correo Electrónico <sup>*</sup></label>
-                    <input className={styles.input} value={mail} onBlur={ValidationMail} onChange={(e)=> setMail(e.target.value)} type="email" />
-                    <small className={styles.small}>{alertText.Mail}</small>
-
-
-                    <label className={styles.label} htmlFor="dateTel">Número de teléfono <sup>*</sup></label>
-                    <input className={styles.input} id='dateTel' name='dateTel' type="tel" value={tel} onBlur={ValidationTel} onChange={(e)=> setTel(e.target.value)} />
-                    <small className={styles.small}>{alertText.Tel}</small>
+                    <div className={styles.div_contain_input}>
+                        <label className={styles.label} htmlFor="dateTel">Número de teléfono <sup>*</sup></label>
+                        <input className={styles.input} id='dateTel' name='dateTel' type="tel" value={tel} onBlur={ValidationTel} onChange={(e)=> setTel(e.target.value)} />
+                        <small className={styles.small}>{alertText.Tel}</small>
+                    </div>
+                    
 
                 </fieldset>
 
                 <fieldset className={styles.fieldset}>
-                    <legend className={styles.legend}>Fecha</legend>
+                    <legend className={styles.legend}>Fecha y servicio</legend>
                     <label className={styles.label} htmlFor="day">Día</label>
-                    <select className={styles.select} name="day" id="day">
+                    <select className={styles.select} value={dayDate} name="day" id="day">
                         <Days></Days>
                     </select>
 
                     <label className={styles.label} htmlFor="hour">Hora</label>
-                    <select className={styles.select} name="hour" id="hour">
+                    <select className={styles.select} value={hourDate} name="hour" id="hour">
                         <Hour/>
                     </select>
-                     <button className={styles.btn} disabled={disabled} action="Submit">Enviar</button>
+
+                    <label className={styles.label} htmlFor="serviceAvailable">Servicio</label>
+                    <select className={styles.select}  name="serviceAvailable" id="serviceAvailable">
+                        <Services/>
+                    </select>
+                     <button type='button' className={styles.btn} disabled={disabled} onClick={VerifiedDate}>Enviar</button>
                 </fieldset>
+
+                <div className={styles.confirmDate}>
+                    <p>¿{name} estás seguro que quieres ir el día {dayDate} a la hora {hourDate} para recibir el servicio de {serviceDate}</p>
+                    <button type='button'>Cancelar</button>
+                    <button type='submit'>Confirmar y enviar</button>
+                </div>
             </form>
+            <div >
+                <p className={styles.p}>*Los campos marcados con asterisco son obligatorios.</p>
+                <p className={styles.p}>*Recuerda que puedes cancelar o modificar tu cita en cualquier momento.</p>
+            </div>
         </section>
     );  
 }
