@@ -1,9 +1,10 @@
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './date.module.css'
+import { Link } from 'react-router-dom';
 
 function Dates(){
     
-
+    //Generar fechas disponibles para los próximos 14 días
     const generateDates = () => {
     const days = [];
     
@@ -20,7 +21,7 @@ function Dates(){
 
   const Days = ()=>{
     return availableDates.map((day, index) => (
-        <option value="" key={index}>{day}</option>
+        <option value={day} key={index}>{day}</option>
     ))
   }
 
@@ -44,7 +45,8 @@ function Dates(){
         ));
 };
 
-
+    //Constantes para almacenar los datos del formulario
+    //y las validaciones de los campos
     const [name, setName] = useState("")
     const [mail, setMail] = useState("")
     const [tel, setTel] = useState("")
@@ -61,6 +63,7 @@ function Dates(){
         Tel: false
     })
 
+    //Validacion del nombre
     function ValidationName(){
         if(!name.trim()){
             setAlertText(prev => ({...prev, Name: "El nombre es obligatorio*"}))
@@ -76,6 +79,7 @@ function Dates(){
         }
     }
 
+    //Validacion del email
     function ValidationMail(){
         if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)){
             setAlertText(prev => ({...prev, Mail: ""}))
@@ -90,7 +94,8 @@ function Dates(){
         }
     }
 
-        function ValidationTel(){
+    //Validacion del telefono
+    function ValidationTel(){
         if(!tel.trim()){
             setAlertText(prev => ({...prev, Tel: "El teléfono es obligatorio*"}))
             setIsValid(prev => ({...prev, Tel: false}))
@@ -105,13 +110,23 @@ function Dates(){
         }
     }
 
-    
+    //Constante para deshabilitar el botón de enviar
     const [disabled, setDisabled] = useState(true)
 
-    useEffect(()=> {
-        setDisabled(isValid.Name && isValid.Mail && isValid.Tel ? false : true)
-    },[isValid])
+    //Constantes para almacenar la fecha, hora y servicio seleccionadas
+    const [dayDate, setDayDate] = useState('')
+    const [hourDate, setHourDate] = useState('')
+    const [serviceDate, setServiceDate] = useState('')
 
+    //Efecto para habilitar o deshabilitar el botón de enviar
+    useEffect(()=> {
+        setDisabled(
+            (isValid.Name && isValid.Mail && isValid.Tel) 
+            && (dayDate !== '' && hourDate !== '' && serviceDate !== '')
+            ? false : true)
+    },[isValid, dayDate, hourDate, serviceDate])
+
+    //Servicios disponibles
     const ServicesAvailable = [
         'Estética Dental',
         'Ortodoncia',
@@ -135,13 +150,13 @@ function Dates(){
         'Tratamiento de Dientes Torcidos'
     ]
 
-    const dayDate = ''
-    const hourDate = ''
-    const serviceDate = ''
+    
 
+
+    //Componente para mostrar los servicios disponibles
     const Services = () => {
         return ServicesAvailable.map((service, index) => (
-            <option key={index} value={serviceDate}>
+            <option key={index} value={service}>
                 {service}
             </option>
         ))
@@ -149,11 +164,29 @@ function Dates(){
 
     const [ConfirmDate, setConfirmDate] = useState(false)
     
-    function VerifiedDate(){
-        return(
-            <div></div>
-        )
+    function handleCancel() {
+        setName("");
+        setMail("");
+        setTel("");
+        setConfirmDate(false);
+        setDayDate("");
+        setHourDate("");
+        setServiceDate("");
     }
+
+    //Función para manejar el envío del formulario
+    function handleSubmit(e) {
+        e.preventDefault();
+        setName("");
+        setMail("");
+        setTel("");
+        setConfirmDate(false);
+        setDayDate("");
+        setHourDate("");
+        setServiceDate("");
+        alert('Formulario enviado correctamente');
+    }
+    
 
 
     return(
@@ -161,8 +194,9 @@ function Dates(){
             <div className={styles.div}>
                 <h1 className={styles.h1}>Programe su cita</h1>
                 <p className={styles.p}>Crear tu cita desde nuestra página te ayuda a poder elegir el dia y la hora en la que puedes visitarnos.</p>
+
             </div>
-            <form action="" className={styles.form}>
+            <form action="" onSubmit={handleSubmit} className={styles.form}>
                 <fieldset className={styles.fieldset}>
                     <legend className={styles.legend}>Datos personales</legend>
                     
@@ -190,32 +224,43 @@ function Dates(){
 
                 <fieldset className={styles.fieldset}>
                     <legend className={styles.legend}>Fecha y servicio</legend>
-                    <label className={styles.label} htmlFor="day">Día</label>
-                    <select className={styles.select} value={dayDate} name="day" id="day">
+                    <label className={styles.label} htmlFor="day">Día <sup>*</sup></label>
+                    <select className={styles.select} value={dayDate} onChange={(e)=> setDayDate(e.target.value)} name="day" id="day">
+                        <option value="" disabled>--Selecciona un día--</option>
                         <Days></Days>
                     </select>
 
-                    <label className={styles.label} htmlFor="hour">Hora</label>
-                    <select className={styles.select} value={hourDate} name="hour" id="hour">
+                    <label className={styles.label} htmlFor="hour">Hora <sup>*</sup></label>
+                    <select className={styles.select} value={hourDate} onChange={(e)=> setHourDate(e.target.value)} name="hour" id="hour">
+                        <option value="" disabled>--Selecciona una hora--</option>
                         <Hour/>
                     </select>
 
-                    <label className={styles.label} htmlFor="serviceAvailable">Servicio</label>
-                    <select className={styles.select}  name="serviceAvailable" id="serviceAvailable">
+                    <label className={styles.label} htmlFor="serviceAvailable">Servicio <sup>*</sup></label>
+                    <select className={styles.select} value={serviceDate}  name="serviceAvailable" id="serviceAvailable" onChange={(e) => setServiceDate(e.target.value)}>
+                        <option value="" disabled>--Selecciona un servicio--</option>
                         <Services/>
                     </select>
-                     <button type='button' className={styles.btn} disabled={disabled} onClick={VerifiedDate}>Enviar</button>
+                     <button type='button' className={styles.btn} onClick={(e) => setConfirmDate(true)} disabled={disabled} >Enviar</button>
                 </fieldset>
-
-                <div className={styles.confirmDate}>
-                    <p>¿{name} estás seguro que quieres ir el día {dayDate} a la hora {hourDate} para recibir el servicio de {serviceDate}</p>
-                    <button type='button'>Cancelar</button>
-                    <button type='submit'>Confirmar y enviar</button>
+                <div className={`${ConfirmDate ? styles.overlay : styles.displaynone}`}>
+                    <div className={`${styles.confirmDate} ${ConfirmDate ? styles.displayblock : styles.displaynone}`}>
+                        <h2 className={styles.h2}>Importante!</h2>
+                        <p className={styles.p}>¿{name} estás seguro que quieres ir el día {dayDate} a la hora {hourDate} para recibir el servicio de  {serviceDate}</p>
+                        <div className={styles.divBtn}>
+                            <button className={styles.btnCancel} onClick={handleCancel} type='button'>Cancelar</button>
+                            <button className={styles.btnConfirm} type='submit'>Confirmar y enviar</button>
+                        </div>
+                    </div>
                 </div>
             </form>
-            <div >
-                <p className={styles.p}>*Los campos marcados con asterisco son obligatorios.</p>
-                <p className={styles.p}>*Recuerda que puedes cancelar o modificar tu cita en cualquier momento.</p>
+
+            <Link>Ver registro de citas</Link>
+
+            
+
+            <div>
+                <p className={styles.p}>*Recuerda que puedes modificar o cancelar tu cita en cualquier momento*</p>
             </div>
         </section>
     );  
