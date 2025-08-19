@@ -1,0 +1,19 @@
+.buttonHome{
+    position: absolute;
+    left: 10%;
+    top: 30%;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    padding: 0.6rem;
+    border-radius: 4px;
+    font-family: "Raleway";
+    transition: 0.2s;
+    border: 2px solid #fff;
+}
+
+.buttonHome:hover{
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #D1E0E7;
+}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from './date.module.css'
 import { Link } from 'react-router-dom';
+import ButtonHome from '../../components/buttonHome';
 
 function Dates(){
     
@@ -191,6 +192,8 @@ function Dates(){
 
     return(
         <section className={styles.section}>
+            <ButtonHome></ButtonHome>
+
             <div className={styles.div}>
                 <h1 className={styles.h1}>Programe su cita</h1>
                 <p className={styles.p}>Crear tu cita desde nuestra página te ayuda a poder elegir el dia y la hora en la que puedes visitarnos.</p>

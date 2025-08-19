@@ -17,7 +17,7 @@ function Main(){
         <Link className={styles.card_service}>
                 <img src={icon} alt="Icono" className={styles.icon} />
                 <h3 className={styles.h3}>{service}</h3>
-                <p className={styles.p}>{description}</p>
+                <p className={styles.p_description_service}>{description}</p>
                 <button className={styles.btn_masinfo}>Más Información</button>
         </Link>
         );

@@ -84,6 +84,7 @@
     font-size: 1.2rem;
     margin-top: 2.5rem;
     border: 2px solid #D1E0E7;
+    transition: 0.2s;
 }
 
 .btn:disabled{
@@ -133,6 +134,7 @@
     font-size: 1.2rem;
     background-color: #fff;
     border: 2px solid #fff;
+    transition: 0.2s;
 }
 
 .btnConfirm:hover, .btnCancel:hover{
