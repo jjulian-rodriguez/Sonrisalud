@@ -1,6 +1,7 @@
 import styles from "./footer.module.css"
 import { useState, useEffect } from 'react'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -126,8 +127,8 @@ function Footer(){
           <h2 className={styles.h2}>Preguntas frecuentes</h2>
 
           <div className={styles.questions}>
-            <span onClick={() => toggleFAQ("Q1")}>¿Dónde están ubicados?</span>
-            <div className={`${styles.response} ${faqOpen.Q1 ? styles.displayblock : styles.displaynone}`}>
+            <span onClick={() => toggleFAQ("Q1")}>{faqOpen.Q1 ? <FontAwesomeIcon icon={faMinus}/> : <FontAwesomeIcon icon={faPlus}/>} ¿Dónde están ubicados? </span>
+            <div role="button"  className={`${styles.response} ${faqOpen.Q1 ? styles.displayblock : styles.displaynone}`}>
               <p>Contamos con tres clínicas dentales estratégicamente ubicadas para tu comodidad:
                 <br />
                - San José Centro: Avenida Central, Calle 5, frente al Parque Central. Edificio Dental Smile, segundo piso.
@@ -142,21 +143,22 @@ function Footer(){
           </div>
 
           <div className={styles.questions}>
-            <span onClick={() => toggleFAQ("Q2")}>¿Qué servicios ofrecen?</span>
+            <span className={styles.span}>{faqOpen.Q2 ? <FontAwesomeIcon icon={faMinus}/> : <FontAwesomeIcon icon={faPlus}/>}</span>
+              <span className={styles.span} role="button"  onClick={() => toggleFAQ("Q2")}> ¿Qué servicios dentales ofrecen?</span>
             <div className={`${styles.response} ${faqOpen.Q2 ? styles.displayblock : styles.displaynone}`}>
               <p>Ofrecemos tratamientos dentales integrales, desde limpiezas y empastes hasta ortodoncia, implantes y estética dental (blanqueamiento, carillas). Atendemos a adultos y niños con servicios preventivos, restaurativos y especializados, siempre con tecnología moderna y profesionales calificados.</p>
             </div>
           </div>
 
           <div className={styles.questions}>
-            <span onClick={() => toggleFAQ("Q3")}>¿Cuál es el costo de una consulta/tratamiento?</span>
+            <span role="button"  onClick={() => toggleFAQ("Q3")}> {faqOpen.Q3 ? <FontAwesomeIcon icon={faMinus}/> : <FontAwesomeIcon icon={faPlus}/>}¿Cuál es el costo de una consulta/tratamiento?</span>
             <div className={`${styles.response} ${faqOpen.Q3 ? styles.displayblock : styles.displaynone}`}>
               <p>Los precios varían según el procedimiento. La consulta inicial tiene un costo fijo accesible, mientras que tratamientos como implantes u ortodoncia requieren evaluación para un presupuesto personalizado. Ofrecemos financiamiento y planes de pago para mayor flexibilidad.</p>
             </div>
           </div>
 
           <div className={styles.questions}>
-            <span onClick={() => toggleFAQ("Q4")}>¿Aceptan mi seguro dental?</span>
+            <span role="button"  onClick={() => toggleFAQ("Q4")}> {faqOpen.Q4 ? <FontAwesomeIcon icon={faMinus}/> : <FontAwesomeIcon icon={faPlus}/>}¿Aceptan mi seguro dental?</span>
             <div className={`${styles.response} ${faqOpen.Q4 ? styles.displayblock : styles.displaynone}`}>
               <p>Trabajamos con varias aseguradoras. Confirma con nuestro equipo si tu póliza aplica. Si no estamos en tu red, te ayudamos con facturas para reembolso. También tenemos opciones de pago en efectivo con descuento y facilidades de financiamiento.</p>
             </div>
@@ -165,6 +167,7 @@ function Footer(){
 
         <div className={styles.div_container_form}>
           <form onSubmit={submit} noValidate className={styles.form}>
+            <h2 className={styles.h2}>Envíanos un mensaje</h2>
             <div className={styles.div_form}>
               <label className={styles.label}  htmlFor="name">Nombre completo <sup>*</sup></label>
               <input className={styles.input} type="text" id="name" name="name" required value={name} onBlur={VerifiedName} onChange={(e)=> setName(e.target.value)}  />

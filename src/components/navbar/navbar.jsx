@@ -18,7 +18,9 @@ function Navbar(){
     return(
         <nav className={`${styles.navbar}`}>
             <div className={styles.div}>
-                <img src={Logo} alt="Logo Sonrisalud"  className={styles.logo} />
+                <Link to="/" className={styles.logo_link}>
+                    <img src={Logo} alt="Logo Sonrisalud" className={styles.logo} />
+                </Link>
                 <a className={styles.tel} href="tel:+50600000000"><FontAwesomeIcon icon={faPhone} ></FontAwesomeIcon>0000-0000</a>
                 <a className={styles.cel} href="tel:+50600000000"><FontAwesomeIcon icon={faMessage}></FontAwesomeIcon> 0000-0000</a>
             </div>
