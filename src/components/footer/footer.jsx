@@ -1,12 +1,12 @@
 import styles from "./footer.module.css"
 import { useState, useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
-
+import logo from '../../assets/logo.png'
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 function Footer(){
-    const Links = ({url, socialMedia}) => {
+    const Links = ({url, socialMedia, icono}) => {
       return(
     <a 
     href={`${url}`}
@@ -14,7 +14,7 @@ function Footer(){
     rel="noopener noreferrer"
     className={styles.link}
     >
-    {`Síguenos en ${socialMedia}`}
+    {`Síguenos en ${socialMedia}`} 
     </a>
       );
      
@@ -113,57 +113,26 @@ function Footer(){
     setFaqOpen(prev => ({...prev, [key]: !prev[key]}));
   }
 
+  //Constante para los links del footer
+  const FooterLinks = ({link}) =>{
+    return(
+      <li className={styles.li}>
+        <Link className={styles.link_footer} to='/'>{link}</Link>
+      </li>
+    )
+  }
+
   return(
     <footer className={styles.footer}>
       <section className={styles.section}>          
         <div className={styles.div_socialMedia}>
           <h2 className={styles.h2}>Síguenos</h2>
-          <Links url={"www.instagram.com"} socialMedia={"Instagram"}/>
+          <Links url={"www.instagram.com"} socialMedia={"Instagram"} />
           <Links url={"www.instagram.com"} socialMedia={"Facebook"}/>
           <Links url={"www.instagram.com"} socialMedia={"TikTok"}/>
         </div>
 
-        <div className={styles.frequentily}>
-          <h2 className={styles.h2}>Preguntas frecuentes</h2>
-
-          <div className={styles.questions}>
-            <span onClick={() => toggleFAQ("Q1")}>{faqOpen.Q1 ? <FontAwesomeIcon icon={faMinus}/> : <FontAwesomeIcon icon={faPlus}/>} ¿Dónde están ubicados? </span>
-            <div role="button"  className={`${styles.response} ${faqOpen.Q1 ? styles.displayblock : styles.displaynone}`}>
-              <p>Contamos con tres clínicas dentales estratégicamente ubicadas para tu comodidad:
-                <br />
-               - San José Centro: Avenida Central, Calle 5, frente al Parque Central. Edificio Dental Smile, segundo piso.
-                <br />
-               - San José, Escazú: Plaza Tempo, local #12, 200 metros oeste del AyA.
-                <br />
-               - Alajuela Centro: De la Catedral 300 metros norte, contiguo a la Farmacia La Luz.
-                <br />
-                Todos nuestros locales tienen horario de lunes a sábado y cuentan con estacionamiento gratuito. ¡Te esperamos!
-              </p>
-            </div>
-          </div>
-
-          <div className={styles.questions}>
-            <span className={styles.span}>{faqOpen.Q2 ? <FontAwesomeIcon icon={faMinus}/> : <FontAwesomeIcon icon={faPlus}/>}</span>
-              <span className={styles.span} role="button"  onClick={() => toggleFAQ("Q2")}> ¿Qué servicios dentales ofrecen?</span>
-            <div className={`${styles.response} ${faqOpen.Q2 ? styles.displayblock : styles.displaynone}`}>
-              <p>Ofrecemos tratamientos dentales integrales, desde limpiezas y empastes hasta ortodoncia, implantes y estética dental (blanqueamiento, carillas). Atendemos a adultos y niños con servicios preventivos, restaurativos y especializados, siempre con tecnología moderna y profesionales calificados.</p>
-            </div>
-          </div>
-
-          <div className={styles.questions}>
-            <span role="button"  onClick={() => toggleFAQ("Q3")}> {faqOpen.Q3 ? <FontAwesomeIcon icon={faMinus}/> : <FontAwesomeIcon icon={faPlus}/>}¿Cuál es el costo de una consulta/tratamiento?</span>
-            <div className={`${styles.response} ${faqOpen.Q3 ? styles.displayblock : styles.displaynone}`}>
-              <p>Los precios varían según el procedimiento. La consulta inicial tiene un costo fijo accesible, mientras que tratamientos como implantes u ortodoncia requieren evaluación para un presupuesto personalizado. Ofrecemos financiamiento y planes de pago para mayor flexibilidad.</p>
-            </div>
-          </div>
-
-          <div className={styles.questions}>
-            <span role="button"  onClick={() => toggleFAQ("Q4")}> {faqOpen.Q4 ? <FontAwesomeIcon icon={faMinus}/> : <FontAwesomeIcon icon={faPlus}/>}¿Aceptan mi seguro dental?</span>
-            <div className={`${styles.response} ${faqOpen.Q4 ? styles.displayblock : styles.displaynone}`}>
-              <p>Trabajamos con varias aseguradoras. Confirma con nuestro equipo si tu póliza aplica. Si no estamos en tu red, te ayudamos con facturas para reembolso. También tenemos opciones de pago en efectivo con descuento y facilidades de financiamiento.</p>
-            </div>
-          </div>
-        </div>
+        
 
         <div className={styles.div_container_form}>
           <form onSubmit={submit} noValidate className={styles.form}>
@@ -195,7 +164,21 @@ function Footer(){
           </form>
         </div>
       </section>
-      <p className={styles.p}>Copyright Sonrisalud. Todos los derechos reservados.</p>
+      <section className={styles.section_info}>
+        <div className={styles.div_info}>
+          <ul className={styles.ul}>
+            <FooterLinks link={"FAQ"}/>
+            <FooterLinks link={"Política de privacidad"}/>
+            <FooterLinks link={"Términos y condiciones"}/>
+            <FooterLinks link={"Contáctanos"}/>
+            <FooterLinks link={"Política de cookies"}/>
+          </ul>
+        </div>
+        <div className={styles.div_copyright}>
+          <img src={logo} width={100} alt="" />
+          <p className={styles.p}>Copyright Sonrisalud. Todos los derechos reservados.</p>
+        </div>
+      </section>
     </footer>
   );
 }

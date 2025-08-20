@@ -1,0 +1,212 @@
+.promotion{
+    width: 100%;
+    min-height: 80vh;
+    height: auto;
+    background: linear-gradient(135deg, #4A6B8A 20%, #2b5177 100%); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.article{
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 4px;
+    margin: 4rem 0;
+}
+
+.images{
+    position: relative;
+    width: 40%;
+    min-height: 60vh;
+    height: auto;
+}
+
+.images::after {
+  content: "";
+  position: absolute;
+  left: 60%; 
+  width: 40%; 
+  height: 40%;
+  background-image: radial-gradient(white 2px, transparent 2px);
+  background-size: 2rem 2rem; /* Tamaño de cada punto */
+  z-index: 2;
+  opacity: 1;
+}
+
+.img1{
+    width: auto;
+    height: 90%;
+    object-fit: contain;
+    border-radius: 4px;    
+    position: absolute;
+    left: 10%;
+    top: 2%;
+}
+
+.img2{
+    width: auto;
+    height: 50%;
+    position: absolute;
+    right: 10%;
+    bottom: 2%;
+}
+
+.text{
+    width: 40%;
+    height: auto;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.button{
+    width: auto;
+    border: none;
+    border-radius: 4px;
+    background-color: #D1E0E7;
+    font-size: 1.2rem;
+    padding: 0.4rem 1rem;
+    margin-top: 2rem;
+    font-family: "Raleway";
+    border: 2px solid #D1E0E7;
+    transition: 0.2s;
+}
+
+.h1{
+    font-size: 3rem;
+    font-family: "Raleway";
+}
+
+.p{
+    font-size: 1.3rem;
+    font-family: "Onest";
+}
+
+.button:hover{
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+@media(max-width: 1200px){
+    .article{
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+        margin: 4rem 0;
+    }
+
+    .text{
+        width: 80%;
+    }
+
+    .img{
+        width: 50%;
+    }
+
+    .images{
+        width: 80%;
+        height: auto;
+        position: relative;
+    }
+
+    .images::after {
+        content: "";
+        position: absolute;
+        right: -20vw;
+        width: 40%; 
+        height: 40%;
+        background-image: radial-gradient(white 2px, transparent 2px);
+        background-size: 2rem 2rem; /* Tamaño de cada punto */
+        z-index: 2;
+        opacity: 1;
+        }
+}
+
+@media (max-width: 868px){
+    .article{
+        width: 90%;
+        margin: 4rem 0;
+    }
+
+    .img{
+        width: 80%;
+    }
+
+    .text{
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px){
+    .images{
+        width: 90%;
+        height: auto;
+    }
+
+    .img1{
+        width: auto;
+        height: 80%;
+    }
+
+    .img2{
+        width: auto;
+        height: 50%;
+    }
+
+    .text{
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px){
+    
+
+    .images{
+        width: 90%;
+        height: auto;
+    }
+
+}
+
+@media (max-width: 500px){
+    .images{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .img1{
+        width: auto;
+        height: 90%;
+        margin: 0;
+        top: auto;
+        left: auto;
+    }
+
+    .img2{
+        display: none;
+    }
+
+
+    .h1{
+        font-size: 2.4rem;
+    }
+
+    .p{
+        font-size: 1.1rem;
+    }
+
+    .button{
+        font-size: 1rem;
+        padding: 0.3rem 0.8rem;
+    }
+}
