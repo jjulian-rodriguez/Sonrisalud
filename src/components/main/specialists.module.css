@@ -1,0 +1,141 @@
+.section_specialists {
+    width: 100%;
+    min-height: 60vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    background-color: #f1f1f1;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg{
+    position: absolute;
+    background-color: #d1d1d1;
+    width: 80%;
+    height: 20vh;
+    border-radius: 50%;
+    bottom: -20%;
+    z-index: 0;
+}
+
+.div_title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.h1{
+    font-size: 3rem;
+    font-family: "Raleway";
+}
+
+.div_title,
+.carousel_container,
+.indicators {
+    position: relative;
+    z-index: 100;
+}
+
+.carousel_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.arrow_btn {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #4A6B8A;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.arrow_btn:hover {
+    transform: scale(1.2);
+}
+
+.slide {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 600px;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease-in-out;
+}
+
+.image_container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #4A6B8A;
+}
+
+.info_container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.active_dot {
+    background-color: #4A6B8A;
+}
+
+@media (max-width: 768px) {
+    .slide {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .name {
+        font-size: 1.2rem;
+    }
+
+    .h1{
+        font-size: 2rem;
+    }
+}

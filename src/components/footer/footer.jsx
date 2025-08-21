@@ -160,7 +160,7 @@ function Footer(){
               <textarea className={styles.textarea} name="message" id="message" placeholder="Escribe tu pregunta, duda o lo que quieras saber aquí."></textarea>
             </div>
 
-            <button disabled={disabled}>Enviar</button>
+            <button className={styles.button} disabled={disabled}>Enviar</button>
           </form>
         </div>
       </section>

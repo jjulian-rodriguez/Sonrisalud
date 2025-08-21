@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import styles from './date.module.css'
 import { Link } from 'react-router-dom';
 import ButtonHome from '../../components/buttonHome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMessage} from "@fortawesome/free-solid-svg-icons";
 
 function Dates(){
     
@@ -258,9 +260,12 @@ function Dates(){
                 </div>
             </form>
 
-            <Link>Ver registro de citas</Link>
+            <Link className={styles.registerLink}>Ver registro de citas</Link>
 
-            
+            <div className={styles.div2}>
+                <h1 className={styles.h1}>¿Prefieres hacerlo con alguien en línea?</h1>
+                <a className={styles.cel} href="tel:+50600000000"><FontAwesomeIcon icon={faMessage}></FontAwesomeIcon>Escríbenos por whatsapp 0000-0000</a>
+            </div>
 
             <div>
                 <p className={styles.p}>*Recuerda que puedes modificar o cancelar tu cita en cualquier momento*</p>
