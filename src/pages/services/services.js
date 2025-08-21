@@ -1,6 +1,24 @@
+import { 
+  faSmile, 
+  faTeeth, 
+  faTooth, 
+  faStar, 
+  faSyringe,
+  faTeethOpen,
+  faChild,
+  faBroom,
+  faXRay,
+  faStethoscope,
+  faTemperatureLow,
+  faWind,
+  faShieldAlt,
+  faRandom
+} from '@fortawesome/free-solid-svg-icons';
+
 export const data = [
   {
     id: 1,
+    icon: faSmile,
     name: "Estética Dental",
     type: "estetico",
     shortDescription: "Tratamientos enfocados en mejorar la apariencia de tu sonrisa mediante técnicas modernas y personalizadas.",
@@ -9,6 +27,7 @@ export const data = [
   },
   {
     id: 2,
+    icon: faTeeth,
     name: "Ortodoncia",
     type: "correctivo",
     shortDescription: "Corrige la posición de los dientes y mandíbula mediante brackets o alineadores invisibles.",
@@ -17,6 +36,7 @@ export const data = [
   },
   {
     id: 3,
+    icon: faTooth,
     name: "Implantes Dentales",
     type: "cirugia",
     shortDescription: "Reemplaza dientes perdidos mediante implantes de titanio que se integran con el hueso.",
@@ -25,6 +45,7 @@ export const data = [
   },
   {
     id: 4,
+    icon: faStar,
     name: "Blanqueamiento Dental",
     type: "estetico",
     shortDescription: "Devuelve a tus dientes un tono más blanco y brillante de forma segura y rápida.",
@@ -33,6 +54,7 @@ export const data = [
   },
   {
     id: 5,
+    icon: faSyringe,
     name: "Endodoncia",
     type: "correctivo",
     shortDescription: "Elimina infecciones internas de los dientes y preserva su funcionalidad natural.",
@@ -41,6 +63,7 @@ export const data = [
   },
   {
     id: 6,
+    icon: faTeethOpen,
     name: "Periodoncia",
     type: "preventivo",
     shortDescription: "Previene, diagnostica y trata enfermedades de las encías y tejidos de soporte dental.",
@@ -49,6 +72,7 @@ export const data = [
   },
   {
     id: 7,
+    icon: faChild,
     name: "Odontopediatría",
     type: "preventivo",
     shortDescription: "Atención dental especializada para niños, enfocada en prevenir problemas futuros.",
@@ -57,6 +81,7 @@ export const data = [
   },
   {
     id: 8,
+    icon: faBroom,
     name: "Limpieza Dental",
     type: "preventivo",
     shortDescription: "Elimina placa, sarro y manchas para mantener dientes y encías saludables.",
@@ -65,6 +90,7 @@ export const data = [
   },
   {
     id: 9,
+    icon: faTeeth,
     name: "Cirugía Oral",
     type: "cirugia",
     shortDescription: "Procedimientos quirúrgicos para extraer piezas dentales y tratar problemas complejos.",
@@ -73,6 +99,7 @@ export const data = [
   },
   {
     id: 10,
+    icon: faTeethOpen,
     name: "Prostodoncia",
     type: "correctivo",
     shortDescription: "Restaura dientes perdidos mediante prótesis fijas o removibles de alta calidad.",
@@ -81,6 +108,7 @@ export const data = [
   },
   {
     id: 11,
+    icon: faXRay,
     name: "Radiografías Dentales",
     type: "diagnostico",
     shortDescription: "Permiten evaluar la estructura interna de dientes y encías para un diagnóstico preciso.",
@@ -89,6 +117,7 @@ export const data = [
   },
   {
     id: 12,
+    icon: faStethoscope,
     name: "Consulta General",
     type: "diagnostico",
     shortDescription: "Evaluación completa de tu salud dental para detectar y prevenir problemas tempranos.",
@@ -97,6 +126,7 @@ export const data = [
   },
   {
     id: 13,
+    icon: faTooth,
     name: "Tratamiento de Caries",
     type: "correctivo",
     shortDescription: "Elimina caries y restaura la estructura dental con resinas o empastes estéticos.",
@@ -105,6 +135,7 @@ export const data = [
   },
   {
     id: 14,
+    icon: faTeethOpen,
     name: "Tratamiento de Encías",
     type: "preventivo",
     shortDescription: "Trata inflamaciones, sangrados y retracciones de encías para evitar daños mayores.",
@@ -113,6 +144,7 @@ export const data = [
   },
   {
     id: 15,
+    icon: faTemperatureLow,
     name: "Tratamiento de Sensibilidad Dental",
     type: "correctivo",
     shortDescription: "Reduce el dolor causado por dientes sensibles ante cambios de temperatura y alimentos.",
@@ -121,6 +153,7 @@ export const data = [
   },
   {
     id: 16,
+    icon: faTeeth,
     name: "Tratamiento de Bruxismo",
     type: "correctivo",
     shortDescription: "Controla el rechinar de dientes y previene el desgaste dental mediante férulas personalizadas.",
@@ -129,6 +162,7 @@ export const data = [
   },
   {
     id: 17,
+    icon: faWind,
     name: "Tratamiento de Halitosis",
     type: "preventivo",
     shortDescription: "Elimina el mal aliento mediante técnicas de limpieza y control bacteriano.",
@@ -137,6 +171,7 @@ export const data = [
   },
   {
     id: 18,
+    icon: faTeeth,
     name: "Tratamiento de Dientes Desgastados",
     type: "correctivo",
     shortDescription: "Restaura el esmalte y la forma original de dientes afectados por el desgaste.",
@@ -145,6 +180,7 @@ export const data = [
   },
   {
     id: 19,
+    icon: faShieldAlt,
     name: "Tratamiento de Dientes Astillados",
     type: "correctivo",
     shortDescription: "Repara fracturas pequeñas con materiales estéticos para devolver la forma y función.",
@@ -153,6 +189,7 @@ export const data = [
   },
   {
     id: 20,
+    icon: faRandom,
     name: "Tratamiento de Dientes Torcidos",
     type: "correctivo",
     shortDescription: "Corrige dientes desalineados con tratamientos menos invasivos y personalizados.",

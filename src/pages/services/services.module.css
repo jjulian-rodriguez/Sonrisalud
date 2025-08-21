@@ -30,7 +30,7 @@
     border: none;
     background-color: transparent;
     font-family: "Onest";
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 1.1rem;
     padding: 0.4rem 1rem;
     border: 2px solid #4A6B8A;    
@@ -51,12 +51,12 @@
 }
 
 .card{
-    width: 80%;
-    min-height: 30vh;
+    width: 85%;
+    min-height: 300px;
     height: auto;
     background-color: #fff;
     text-align: center;
-    border-radius: 4px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -64,19 +64,36 @@
     box-shadow: 0 0 10px #1111;
     transition: 0.2s;
     padding: 0 1rem;
+    position: relative;
+}
+
+.icon{
+    top: 4%;
+    left: 45%;
+    background-color: #4A6B8A;
+    border-radius: 50%;
+    padding: 0.4rem;
+    color: #fff;
+    font-size: 2rem;
 }
 
 .card:hover{
     transform: scale(1.1);
-    border-top: 3px solid #4A6B8A;
+    border-top: 5px solid #4A6B8A;
     box-shadow: 0 0 20px #1112;
+    .icon{
+        background-color: transparent;
+        color: #4A6B8A;
+        padding: 0.4rem;
+        border-radius: 50%;
+    }
 }
 
 .btn{
     border: none;
     background-color: #4A6B8A;
     color: #fff;
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 1.1rem;
     font-family: "Onest";
     padding: 0.2rem 0.8rem;
@@ -117,12 +134,18 @@
 .div_card_info{
     width: 40%;
     height: auto;
-    padding: 2rem;
+    padding: 3rem;
     background-color: #fff;
-    border-radius: 4px;
+    border-radius: 8px;
     position: relative;
     margin: 0;
- }
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 1000;
+}
 
 .span_x{
     position: absolute;
@@ -136,4 +159,70 @@
 
 .displayblock{
     display: flex;
+}
+
+.h3{
+    font-family: "Raleway";
+}
+
+.card > .h3{
+}
+
+.link_dates{
+    background-color: #4A6B8A;
+    padding: 0.4rem 1rem;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 2px solid #4A6B8A;
+    font-family: 'Onest';
+    align-self: flex-end;
+}
+
+.link_dates:hover{
+    background-color: transparent;
+    color: #000;
+}
+
+.p{
+    font-family: 'Onest';
+}
+
+.h1{
+    font-family: 'Raleway';
+}
+
+.title{
+    width: 100%;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+@media (max-width: 1000px){
+    .div_filter{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .div_cards{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .div_card_info{
+        width: 70%;
+    }
+}
+
+@media (max-width: 550px){
+    .div_filter{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .div_cards{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .div_card_info{
+        width: 90%;
+    }
 }

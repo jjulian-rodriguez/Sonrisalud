@@ -17,7 +17,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 4rem 0;
 }
 .div_contain_service{
@@ -39,7 +39,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    border-radius: 4px;
+    border-radius: 8px;
     text-decoration: none;
     text-align: center;
     transition: 0.5s;
@@ -67,7 +67,7 @@
     background-size: cover;
     image-rendering: auto;
     top: 0;
-    border-radius: 4px 4px 0 0;
+    border-radius: 8px 8px 0 0;
 }
 
 .h2{
@@ -94,7 +94,7 @@
     padding: 0.2rem 1.2rem;
     color: #fff;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-top: 1rem;
     border: 2px solid #4A6B8A;
     font-family: "Raleway";

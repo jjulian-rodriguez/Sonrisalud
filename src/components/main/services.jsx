@@ -16,7 +16,7 @@ function Services(){
             <div className={styles.div_info_service}>
                 <h3 className={styles.h3}>{service}</h3>
                 <p className={styles.p}>{description}</p>
-                <Link to={`/services/${service}`} className={styles.link}>Conocer más</Link>
+                <Link to={`/services`} className={styles.link}>Conocer más</Link>
             </div>
         </article>
         );
