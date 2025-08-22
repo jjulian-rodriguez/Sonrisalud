@@ -1,0 +1,170 @@
+.form{
+    height: auto;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #1114;
+    background-color: #f1f1f1;
+    padding: 2rem 0;
+    z-index: 1000;
+}
+
+.div_container_form{
+    min-height: 90vh;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: url(../../assets/background/background-2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: lighten;
+    background-color: #fff9;
+    z-index: 10000;
+}
+
+.arrow{
+    width: 300px;
+}
+
+.div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.div_form{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+}
+
+.input{
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 0.6rem 0;
+    background-color: #fff;
+}
+
+.textarea{
+    border: 1px solid #444;
+    background-color: #fff;
+    border-radius: 8px;
+    height: 6rem;
+}
+
+.label{
+    font-size: 1.2rem;
+    font-family: sans-serif, Arial;
+}
+
+sup{
+    color: #f00;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+small{
+    color: #f00;
+    height: 1vh;
+    font-size: 0.4rem;
+}
+
+.form > .button{
+    width: 60%;
+    border: 2px solid #4A6B8A;
+    background-color: #4A6B8A;
+    color: #fff;
+    padding: 0.7rem 0;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: 0.2s;
+    margin-top: 1rem;
+}
+
+.form > .button:hover{
+    background-color: transparent;
+    color: #000;
+}
+.alert{
+    margin-top: 1rem;
+    color: red;
+}
+
+.form > .button:disabled{
+    background-color: #4444;
+    color: #000;
+    border: 2px solid #4444;
+}
+
+.opcional{
+    font-size: 1rem;
+    color: #777;
+}
+
+.p{
+    text-align: center;
+}
+
+.p{
+    font-family: "Raleway";
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.h2{
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: "Raleway";
+}
+
+@media (max-width: 1200px){
+    .div_container_form{
+        flex-direction: column;
+        gap: 4rem;
+        padding: 4rem 0;
+    }
+
+    .div{
+    width: 90%;
+    }
+
+    .arrow{
+        display: none;
+    }
+
+    .form{
+        width: 70%;
+    }
+}
+
+
+@media (max-width: 868px){
+
+    .div_container_form{
+        width: 100%;
+    }
+    
+
+    .form > button{
+        width: 50%;
+    }
+}
+
+@media (max-width: 550px){
+    .form{
+        width: 90%;
+    }
+
+    .div_form{
+        width: 90%;
+    }
+
+    
+}

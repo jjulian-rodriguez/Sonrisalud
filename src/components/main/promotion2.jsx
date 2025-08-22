@@ -1,17 +1,38 @@
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import styles from './promotion2.module.css'
-import promotion2 from '../../assets/promotion/promotion-2-2.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Promotion2(){
     return(
         <section className={styles.promotion}>
-            <article className={styles.article}>
-                <img src={promotion2} alt="" className={styles.img} />
-                <div className={styles.text}>
-                    <h1 className={styles.h1}>Tratamientos dentales de calidad para toda la familia</h1>
-                    <p className={styles.p}>Sabemos lo importante que es tu salud y la de quienes más quieres. Por eso, ofrecemos una amplia variedad de servicios dentales pensados para cada etapa de la vida, desde los más pequeños hasta los adultos. Nuestra misión es ofrecerte un trato personalizado, cómodo y seguro para que disfrutes de una sonrisa sana durante todo el año.</p>
-                    <button className={styles.button}>Conoce más</button>
+            <h2 className={styles.h2}>Cada vez somos una comunidad mas grande!</h2>
+            <div className={styles.div_contain_div}>
+
+            
+                <div className={styles.div}>
+                    <h3 className={styles.h3}>5</h3>
+                    <h4 className={styles.h4}>Especialistas</h4>
+                    <p className={styles.p}>Profesionales altamente calificados</p>
                 </div>
-            </article>
+
+                <div className={styles.div}>
+                    <h3 className={styles.h3}>+100</h3>
+                    <h4 className={styles.h4}>Pacientes</h4>
+                    <p className={styles.p}>Personas que confían en nosotros</p>
+                </div>
+
+                <div className={styles.div}>
+                    <h3 className={styles.h3}>+1500</h3>
+                    <h4 className={styles.h4}>Persona Ayudadas</h4>
+                    <p className={styles.p}>Impacto positivo en la comunidad</p>
+                </div >
+
+                <div className={styles.div}>
+                    <h3 className={styles.h3}>4.8 <FontAwesomeIcon className={styles.star} icon={faStar}></FontAwesomeIcon></h3>
+                    <h4 className={styles.h4}>Calificación</h4>
+                    <p className={styles.p}>Basada en 127 opiniones</p>
+                </div>
+            </div>
         </section>
     );
 }
