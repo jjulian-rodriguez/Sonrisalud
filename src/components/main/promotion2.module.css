@@ -2,7 +2,7 @@
     width: 100%;
     min-height: 70vh;
     height: auto;
-    background-color: #4A6B8A;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,7 +14,7 @@
 
 .h2{
     font-size: 3rem;
-    color: #fff;
+    color: #000;
     font-family: "Raleway";
 
 }
@@ -38,12 +38,10 @@
     height: 25vh;
     border-radius: 8px;
     margin: 4rem 0;
-    background-color: #f1f1f1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 20px #2225;
 }
 
 .h3{
@@ -51,6 +49,7 @@
     font-family: "Onest";
     font-weight: 200;
 }
+
 
 .h4{
     font-size: 1.5rem;

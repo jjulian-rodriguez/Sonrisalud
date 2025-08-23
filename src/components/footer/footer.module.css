@@ -16,7 +16,7 @@ html, body{
 .section{
     background-color: #4A6B8A;
     width: 100%;
-    min-height: 40vh;
+    min-height: 50vh;
     height: auto;
     display: flex;
     align-items: center;
@@ -138,6 +138,13 @@ html, body{
     .div_socialMedia{
         width: 100%;
     }
+
+    .section{
+        flex-direction: column;
+        padding: 2rem 0;
+    }
+
+    
 
     
 }

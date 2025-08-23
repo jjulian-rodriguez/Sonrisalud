@@ -252,7 +252,20 @@
         align-self: center;
     }
     
+    .div2 > .cel{
+        font-size: 1rem;
+        padding: 0.2rem;
+    }
     
-    
+}
+@media(max-width: 450px){
+    .form{
+        width: 130%;
+        padding: 1rem 0;
+    }
+
+    .confirmDate{
+        width: 100%;
+    }
 }
 

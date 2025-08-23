@@ -12,6 +12,16 @@ function Navbar(){
     function openNB(){
         setOpen(!open)
     }
+
+    const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight, 
+      behavior: "smooth", 
+    });
+  };
+
+
+
     return(
         <nav className={`${styles.navbar}`}>
             <div className={styles.div}>
@@ -24,13 +34,13 @@ function Navbar(){
             <button className={styles.hamburger} onClick={openNB}> {open ? "✕" : "☰"}</button>
             <ul className={styles.navbar_ul}> 
                 <li className={`${styles.navbar_li} ${open ? styles.displayblock : styles.displaynone}`}>
-                    <Link className={`${styles.navbar_link} ${open ? styles.event : styles.nonevent}`} to="/services">Servicios</Link>
+                    <Link className={`${styles.navbar_link}`} to="/services">Servicios</Link>
                 </li >
                 <li className={`${styles.navbar_li} ${open ? styles.displayblock : styles.displaynone}`}>
                     <Link className={styles.navbar_link} to="/date">Agendá tu cita</Link>
                 </li>
                 <li className={`${styles.navbar_li} ${open ? styles.displayblock : styles.displaynone}`}>
-                    <Link className={styles.navbar_link} to="../footer">Contáctanos</Link>
+                    <Link className={styles.navbar_link} to="#" onClick={scrollToBottom}>Contáctanos</Link>
                 </li>
             </ul>
         </nav>
