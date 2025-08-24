@@ -54,7 +54,7 @@ function Services(){
             </div>
             <div onClick={()=> setIsVisible('')} className={`${styles.card_info} ${isVisible === '' ? styles.displaynone : styles.displayblock}`}>
                 {data.filter(service => service.name === isVisible).map((service) =>(
-                    <div onClick={()=> setIsVisible(service.name)} key={service.name} className={styles.div_card_info}>
+                    <div onClick={()=> {handleInfo(service.name)}} key={service.name} className={styles.div_card_info}>
                         <span onClick={()=>{setIsVisible('')}} className={styles.span_x} role='button'><FontAwesomeIcon icon={faX}></FontAwesomeIcon></span>
                         <h3 className={styles.h3}>{service.name}</h3>
                         <p className={styles.p}>{service.longDescription}</p>
